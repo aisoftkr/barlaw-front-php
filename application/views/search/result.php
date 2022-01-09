@@ -21,7 +21,7 @@
 				<h5 class="result-box-ttl"><?=$value['question']?></h5>
 				<div class="answer-box">
 					<p class="answer"><span>답변</span><?=$value['answer']?></p>
-					<?php if($value['percent'] >= 0 || $value['percent'] != 'nan'){ ?>
+					<?php if($value['percent'] >= 0 && $value['percent'] != 'nan'){ ?>
 						<div class="bar-box">
 							<div class="bar" style="width:<?=$value['percent']?>%">
 								<div class="bar-p">
@@ -55,7 +55,7 @@
 					<h5 class="result-box-ttl"><?=$value['question']?></h5>
 					<div class="answer-box">
 						<p class="answer"><span>답변</span><?=$value['answer']?></p>
-						<?php if($value['percent'] >= 0 || $value['percent'] != 'nan'){ ?>
+						<?php if($value['percent'] >= 0 && $value['percent'] != 'nan'){ ?>
 						<div class="bar-box">
 							<div class="bar" style="width:<?=$value['percent']?>%">
 								<div class="bar-p">
