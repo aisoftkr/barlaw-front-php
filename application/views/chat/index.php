@@ -215,7 +215,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						  pcValue.css("width", percent + '%');
 						})
 					}else{
-						$('.input-box').prev().append(defaultHtmlHeader+'<div class="text-e3">관련 판례ᆞ사례 가 없거나. 요청한 데이터에 문제가 있습니다.</div>'+ defaultHtmlFooter)
+						if(data.code===0){
+							$('.input-box').prev().append(defaultHtmlHeader+'<div class="text-e3">관련 판례ᆞ사례 가 없습니다.</div>'+ defaultHtmlFooter)
+						}else{
+							$('.input-box').prev().append(defaultHtmlHeader+'<div class="text-e3">요청한 데이터에 문제가 있습니다.</div>'+ defaultHtmlFooter)
+						}
+
 					}
 
 				},
