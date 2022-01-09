@@ -57,23 +57,23 @@ class Search  extends CI_Controller
 		if($JsonParser!=null){
 			if(element('result_answer', $JsonParser)){
 				foreach ( element('result_answer', $JsonParser) as $key=>$value){
-					if((float)$value['percent'] > 0) {
-						$no++;
-						if($no <= $data['pageListCnt']) {
-							$lastCnt++;
-							$list[$key]['question'] = $value['question'];
-							$list[$key]['content'] = $value['content'];
-							$list[$key]['answer'] = $value['answer'];
-							$list[$key]['panrye'] = $value['panrye'];
-							$list[$key]['percent'] = $value['percent'];
-						}else{
-							$listMore[$key]['question'] = $value['question'];
-							$listMore[$key]['content'] = $value['content'];
-							$listMore[$key]['answer'] = $value['answer'];
-							$listMore[$key]['panrye'] = $value['panrye'];
-							$listMore[$key]['percent'] = $value['percent'];
-						}
+
+					$no++;
+					if($no <= $data['pageListCnt']) {
+						$lastCnt++;
+						$list[$key]['question'] = $value['question'];
+						$list[$key]['content'] = $value['content'];
+						$list[$key]['answer'] = $value['answer'];
+						$list[$key]['panrye'] = $value['panrye'];
+						$list[$key]['percent'] = $value['percent'];
+					}else{
+						$listMore[$key]['question'] = $value['question'];
+						$listMore[$key]['content'] = $value['content'];
+						$listMore[$key]['answer'] = $value['answer'];
+						$listMore[$key]['panrye'] = $value['panrye'];
+						$listMore[$key]['percent'] = $value['percent'];
 					}
+
 				}
 			}
 		}
