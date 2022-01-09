@@ -1940,3 +1940,6 @@ i.translation{
 	margin-top: 70px;
 	text-align: center;
 }
+.precedent-main tbody tr td span {
+	color:#ff0000;
+}
