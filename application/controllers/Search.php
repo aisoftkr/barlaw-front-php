@@ -65,7 +65,7 @@ class Search  extends CI_Controller
 						$list[$key]['content'] = $value['content'];
 						$list[$key]['answer'] = $value['answer'];
 						$list[$key]['panrye'] = $value['panrye'];
-						((float)$value['percent'] > 0) ? $list[$key]['percent'] = $value['percent'] : 0;
+						((float)$value['percent'] > 0) ? $list[$key]['percent'] = $value['percent'] : $list[$key]['percent'] =0;
 					}else{
 						$listMore[$key]['question'] = $value['question'];
 						$listMore[$key]['content'] = $value['content'];
