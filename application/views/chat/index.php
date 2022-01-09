@@ -113,9 +113,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				+defaultHtmlFooter;
 
 			$('.input-box').prev().append(lodingHtml);
-
+			setTimeout(function() {
 				$(".loading-box").after('<div class="loading-txt1">인공지능 LAWBERT가 열심히 답변을 작성하고 있습니다.</div>');
-
 			  setTimeout(function() {
 			    $(".loading-txt1").after('<div class="loading-txt2">조금만 더 기다려 주세요!</div>');
 			    setTimeout(function() {
@@ -124,10 +123,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			        $(".loading-txt3").after('<div class="loading-txt4">무려 120만건의 판례,법률 데이터를 기억하고 있어요!</div>');
 			        setTimeout(function() {
 			          $(".loading-txt4").after('<div class="loading-txt5">이제 거의 다 됐습니다!</div>');
-			        }, 800);
-			      }, 800);
-			    }, 800);
-			  }, 800);
+			        }, 2000);
+			      }, 2000);
+			    }, 2000);
+			  }, 2000);
+			}, 5000);
 		})
 		.ajaxStop(function () {
 			$('.loading-box').parents('.chat-left').hide();
@@ -183,14 +183,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					if(data.status){
 						var html ='' +
 						    defaultHtmlHeader+
-						    '<div>“'+$('textarea[name=question]').val()+'”<br>에 대한 수치 답변입니다.' +
-						    '<div class="bar-box">' +
-						    '<div class="bar" id="bar-1">' +
-						    '<div class="bar-p">' +
-						    '<p><span>'+data.percent+'</span>%</p>' +
-						    '</div>' +
-						    '</div>' +
-						    '</div>' +
+						    '<div>“'+$('textarea[name=question]').val()+'”<br>에 대한 수치 답변입니다.';
+
+						if(data.percent != 'nan' || data.percent >= 0){
+							html +='' +
+							'<div class="bar-box">' +
+							'	<div class="bar" id="bar-1">';
+							'		<div class="bar-p">' +
+							'			<p><span>'+data.percent+'</span>%</p>' +
+							'		</div>'+
+							'	</div>' +
+							'</div>';
+						}
+						html +='' +
 						    '</div>' +
 						    '<div class="a-chat">' +
 						    '상담 내용에 대해서 더 자세히 알고 싶나요? Barlaw는<br>' +

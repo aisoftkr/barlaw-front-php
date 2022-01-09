@@ -21,13 +21,15 @@
 				<h5 class="result-box-ttl"><?=$value['question']?></h5>
 				<div class="answer-box">
 					<p class="answer"><span>답변</span><?=$value['answer']?></p>
-					<div class="bar-box">
-						<div class="bar" style="width:<?=$value['percent']?>%">
-							<div class="bar-p">
-								<p><span><?=$value['percent']?></span>%</p>
+					<?php if($value['percent'] >= 0 || $value['percent'] != 'nan'){ ?>
+						<div class="bar-box">
+							<div class="bar" style="width:<?=$value['percent']?>%">
+								<div class="bar-p">
+									<p><span><?=$value['percent']?></span>%</p>
+								</div>
 							</div>
 						</div>
-					</div>
+					<?php } ?>
 				</div>
 				<p class="answer-more-p"><a href="#" class="answer-more down">상세답변 보기 &gt;</a></p>
 				<p class="answer-more-p2"><button type="button">닫기</button></p>
@@ -53,6 +55,7 @@
 					<h5 class="result-box-ttl"><?=$value['question']?></h5>
 					<div class="answer-box">
 						<p class="answer"><span>답변</span><?=$value['answer']?></p>
+						<?php if($value['percent'] >= 0 || $value['percent'] != 'nan'){ ?>
 						<div class="bar-box">
 							<div class="bar" style="width:<?=$value['percent']?>%">
 								<div class="bar-p">
@@ -60,6 +63,7 @@
 								</div>
 							</div>
 						</div>
+						<?php } ?>
 					</div>
 					<p class="answer-more-p"><a href="#" class="answer-more down">상세답변 보기 &gt;</a></p>
 					<p class="answer-more-p2"><button type="button">닫기</button></p>
