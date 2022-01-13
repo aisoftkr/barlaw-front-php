@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="modal">
 	<div class="modalBg"></div>
 	<div class="modalContent mo-cont90">
-		<button type="button" class="modalClose"></button>
+		<!-- <button type="button" class="modalClose"></button> -->
 		<div class="modalBody mo-center">
 			<div class="mo-bodyContent">
 				<div class="mo-cont">
@@ -46,16 +46,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 <script>
 
+	//쿠키설정
+	function setCookie( name, value, expiredays ) {
+		var todayDate = new Date();
+		todayDate.setDate( todayDate.getDate() + expiredays );
+		document.cookie = name + '=' + escape( value ) + '; path=/; expires=' + todayDate.toGMTString() + ';'
+	}
+
+	//쿠키 불러오기
+	function getCookie(name){
+		var obj = name + "=";
+		var x = 0;
+		while ( x <= document.cookie.length ){
+			var y = (x+obj.length);
+			if ( document.cookie.substring( x, y ) == obj ){
+				if ((endOfCookie=document.cookie.indexOf( ";", y )) == -1 )
+					endOfCookie = document.cookie.length;
+				return unescape( document.cookie.substring( y, endOfCookie ) );
+			}
+			x = document.cookie.indexOf( " ", x ) + 1;
+			if ( x == 0 ) break;
+		}
+		return "";
+	}
+
 	$(function popupshow(){
-		$(".modal").addClass('on');
-	});
-	$(".mo-open").click(function(){
-		$(".modal").addClass('on');
-		$('body').css('overflow', 'hidden');
-	});
-	$(".modalClose").on('click', function(){
-		$(".modal").removeClass('on');
-		$('body').css('overflow', 'auto');
+		if(getCookie("mo-cook") !="Y"){
+			$(".modal").addClass("on");
+		}
 	});
 	// 버튼
 	$(".modalBtn button").attr("disabled");
@@ -69,9 +87,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$(".modalBtn .btn").removeClass("on");
 		}
 	});
-	$(".modalBtn .btn").on('click',function(){
+	$(".modalBtn .btn").on('click',function closeWin(){
 		var chk = $('input:checkbox[id="ck1"]').is(":checked");
 		if(chk==true){
+			setCookie('mo-cook', 'Y' , 1 );
 			$(".modal").removeClass('on');
 			$('body').css('overflow', 'auto');
 		}

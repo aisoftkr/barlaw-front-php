@@ -3,19 +3,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <div class="chat-con">
 	<div class="cont-t clearfix">
+		<div class="question"></div>
 		<div class="chat-left clearfix">
 			<div class="chat-i"></div>
-			<div class="chat">
+			<div class="chat chat-f">
 				<div class="ch-time">
 					<span class="chat-id">바로</span>,
-					<span class="chat-time">16:21</span>
+					<span class="chat-time" id="ch-time"></span>
 				</div>
-				<div>안녕하세요. 저는 인공지능 바로에요!</div>
-				<div>저와 소통하는 방법이 궁금하시다면 우측 상단의 물음표 버튼 을 눌러주세요</div>
+				<div class="t-load1">안녕하세요. 저는 인공지능 바로에요!</div>
+				<!--<div>저와 소통하는 방법이 궁금하시다면 우측 상단의 물음표 버튼 을 눌러주세요</div>
 				<div>아래의 법률 분야 중 상담 받고 싶은 분야를 선택하신 후, 양식에 구애 받지 않고 자유롭게 상담 내용을 입력해주세요!</div>
 				<div>예를 들어볼까요?
 					“회사 일이 바쁘다고 육아휴직을 당장 쓰지 못하게
-					하는 사장님, 위법인가요?” 라는 질문을 해보겠습니다!”</div>
+					하는 사장님, 위법인가요?” 라는 질문을 해보겠습니다!”</div> -->
 			</div>
 		</div>
 	</div>
@@ -47,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<input type="hidden" name="tag2" class="tag" value="">
 				<input type="hidden" name="tag3" class="tag" value="">
 
-				<textarea name="question" id="" cols="30" rows="1" placeholder="상담 내용을 입력해주세요." @keyup.enter="resize(this)" ></textarea>
+				<textarea name="question" id="" cols="30" rows="1" placeholder="상담 내용을 입력해주세요." data-autoresize></textarea>
 				<button id="q-btn" class="q-btn" type="button" ></button>
 			<?php echo form_close(); ?>
 		</div>
@@ -103,7 +104,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				'<div class="chat-left clearfix">'+
 				defaultHtmlHeader+
 				'     <div class="loading-box">' +
-				'       “<span>'+$('textarea[name=question]').val()+'</span>“'+
+				'       “<span>'+$('textarea[name=question]').val()+'</span>”'+
+				'       <span>인공지능이 답변을 작성하고 있습니다</span>'+
 				'       <div class="loading">'+
 				'         <div class="one scale-blue1"></div>'+
 				'         <div class="one scale-blue2"></div>'+
@@ -123,23 +125,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			        $(".loading-txt3").after('<div class="loading-txt4">무려 120만건의 판례,법률 데이터를 기억하고 있어요!</div>');
 			        setTimeout(function() {
 			          $(".loading-txt4").after('<div class="loading-txt5">이제 거의 다 됐습니다!</div>');
-			        }, 2000);
-			      }, 2000);
-			    }, 2000);
-			  }, 2000);
+			        }, 3000);
+			      }, 3000);
+			    }, 3000);
+			  }, 3000);
 			}, 5000);
 		})
 		.ajaxStop(function () {
 			$('.loading-box').parents('.chat-left').hide();
 		});
-	$(function resize(obj){
-		obj.style.height = "1px";
-		obj.style.height = (obj.scrollHeight)-5+"px";
+	// $(function resize(obj){
+	// 	obj.style.height = "1px";
+	// 	obj.style.height = (obj.scrollHeight)-5+"px";
+	// });
+	$.each($('textarea[data-autoresize]'), function() {
+		let offset = this.offsetHeight - this.clientHeight;
+		let resizeTextarea = function(re) {
+		$(re).css('height', 'auto').css('height', re.scrollHeight + offset);};
+		$(this).on('keyup input', function() {
+			resizeTextarea(this); }).removeAttr('data-autoresize');
 	});
-
-	$(".q-con textarea").on('keydown keyup', function () {
-		$(this).height(0).height( $(this).prop('scrollHeight')-37+"px" );
-	});
+	// $(".q-con textarea").on('keydown keyup', function () {
+	// 	$(this).height(0).height( $(this).prop('scrollHeight')-37+"px" );
+	// });
 	$('.q-con .q-btn').on('click',function(){
 		var txt_co = $('.q-con textarea')
 		var lion = $('.q-box ul li.on').length;
@@ -183,11 +191,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					if(data.status){
 						var html ='' +
 						    defaultHtmlHeader+
-						    '<div>“'+$('textarea[name=question]').val()+'”<br>에 대한 수치 답변입니다.';
+						    '<div class="clearfix">“'+$('textarea[name=question]').val()+'”<br>에 대한 수치 답변입니다.';
 
 						if(data.percent != 'nan' || data.percent >= 0){
 							html +='' +
-							'<div class="bar-box">' +
+							'<div class="bar-box clearfix">' +
 							'	<div class="bar" id="bar-1">';
 							'		<div class="bar-p">' +
 							'			<p><span>'+data.percent+'</span>%</p>' +
@@ -275,9 +283,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				});
 			})
 		}
-
 	});
-
 	$('.question').click(function(){
 		$('.question-on').addClass('on');
 		$(this).addClass('off');
@@ -291,5 +297,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		})
 	});
 
-
+	$("#ch-time").text(getHours + ':' + getMinutes);
+	setTimeout(function() {
+		$(".t-load1").after('<div class="t-load2">저와 소통하는 방법이 궁금하시다면 우측 상단의 물음표 버튼 을 눌러주세요</div>');
+		setTimeout(function() {
+			$(".t-load2").after('<div class="t-load3">아래의 법률 분야 중 상담 받고 싶은 분야를 선택하신 후, 양식에 구애 받지 않고 자유롭게 상담 내용을 입력해주세요!</div>');
+			setTimeout(function() {
+				$(".t-load3").after('<div class="t-load4">예를 들어볼까요? “회사 일이 바쁘다고 육아휴직을 당장 쓰지 못하게 하는 사장님, 위법인가요?” 라는 질문을 해보겠습니다!”</div>');
+			}, 1000);
+		}, 1000);
+	}, 1000);
 </script>
