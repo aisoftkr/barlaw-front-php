@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="chat chat-f">
 				<div class="ch-time">
 					<span class="chat-id">바로</span>,
-					<span class="chat-time" id="ch-time"></span>
+					<span class="chat-time" id="time-ch"></span>
 				</div>
 				<div class="t-load1">안녕하세요. 저는 인공지능 바로에요!</div>
 				<!--<div>저와 소통하는 방법이 궁금하시다면 우측 상단의 물음표 버튼 을 눌러주세요</div>
@@ -297,14 +297,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		})
 	});
 
-	$("#ch-time").text(getHours + ':' + getMinutes);
-	setTimeout(function() {
-		$(".t-load1").after('<div class="t-load2">저와 소통하는 방법이 궁금하시다면 우측 상단의 물음표 버튼 을 눌러주세요</div>');
+	$("#time-ch").text(getHours + ':' + getMinutes);
+    	setTimeout(function() {
+    		$(".t-load1").after('<div class="t-load2">저와 소통하는 방법이 궁금하시다면 우측 상단의 물음표 버튼 을 눌러주세요</div>');
+    	}, 1000);
+	$('.question').click(function(){
+		$(this).addClass('off');
 		setTimeout(function() {
 			$(".t-load2").after('<div class="t-load3">아래의 법률 분야 중 상담 받고 싶은 분야를 선택하신 후, 양식에 구애 받지 않고 자유롭게 상담 내용을 입력해주세요!</div>');
 			setTimeout(function() {
 				$(".t-load3").after('<div class="t-load4">예를 들어볼까요? “회사 일이 바쁘다고 육아휴직을 당장 쓰지 못하게 하는 사장님, 위법인가요?” 라는 질문을 해보겠습니다!”</div>');
+					setTimeout(function() {
+					$(".t-load4").parent().parent(".chat-left").after('<div class="chat-right question-on on"><div>“회사 일이 바쁘다고 육아휴직을 당장 쓰지 못하게 하는 사장님, 위법인가요?”</div><div class="ch-time"><span class="chat-id">보냄</span>,<span class="chat-time">'+getHours + ':' + getMinutes+'</span></div></div>');
+				}, 1000);
 			}, 1000);
 		}, 1000);
-	}, 1000);
+	});
 </script>
