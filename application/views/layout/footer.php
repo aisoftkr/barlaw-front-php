@@ -13,8 +13,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<p class="mt10">Copyright © 2021 아폴로 All Rights Reserved.</p>
 							</div>
 							<div class="f-po mt10">
-								<a href="">서비스 이용약관 ㅣ </a>
-								<a href="">개인정보 처리 방침</a>
+								<a href="https://aisoftkorea.com/terms-of-service" target="_blank">서비스 이용약관 ㅣ </a>
+								<a href="https://aisoftkorea.com/privacy-policy" target="_blank">개인정보 처리 방침</a>
 							</div>
 						</div>
 					</div>

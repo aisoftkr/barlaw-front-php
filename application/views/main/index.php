@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<a href="/search" class="btn">유사 사례ᆞ판례 검색</a>
 
 			</div>
-			<a href="https://aisoftkorea.com/" class="add">Barlaw를 만든 사람들</a>
+			<a href="https://aisoftkorea.com/" class="add" target="_blank">Barlaw를 만든 사람들</a>
 		</div>
 	</form>
 </div>
