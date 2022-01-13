@@ -567,6 +567,7 @@ input[type=checkbox]:checked+label::before{
     min-height: 700px;
     display: flex;
     flex-direction: column;
+	justify-content: center;
 }
 .main-tit{
     font-size: 24px;
@@ -975,6 +976,7 @@ button.q-btn.on{
 .main-wrap.srch .content{
     max-width: 570px;
     margin-top: 0;
+	justify-content: normal;
 }
 .main-wrap.srch .m-logo{
     margin-bottom: 48px;
@@ -1549,7 +1551,7 @@ i.translation{
         height:58px;
     }
     .srch-catewrap.active{
-        height:200px;
+        height:230px;
     }
     /*검색결과*/
     .subheader{
@@ -1686,7 +1688,7 @@ i.translation{
 }
 @media screen and (max-width : 540px){
     .main-wrap .content {
-        padding: 22vh 10px 0;
+        padding: 50px 10px;
         height: calc(100vh - 50px);
         min-height: 580px;
     }
@@ -1782,8 +1784,11 @@ i.translation{
         height: 7px;
     }
     /*검색창*/
+	.main-wrap.srch .content{
+		padding: 22vh 10px 0;
+	}
     .srch-boxwrap{
-        width: 100%;
+        width: calc(100% - 70px);
         max-width:400px;
     }
     .main-wrap.srch .m-logo{
@@ -1793,25 +1798,25 @@ i.translation{
     }
     .srch-boxwrap{
         font-size: 14px;
-        height:40px;
-        line-height: 40px;
+        height:44px;
+        line-height: 44px;
         border-width: 1px;
     }
     .srch-boxwrap .srch-input{
         font-size: 14px;
-        height:40px;
-        line-height: 40px;
+        height:44px;
+        line-height: 44px;
         padding: 0 30px 0 15px;
     }
     .srch-boxwrap .srch-btn{
         position: absolute;
         right:0;
         width: 50px;
-        height: 40px;
+        height: 44px;
         background-size: 30px;
     }
     .srch-catewrap{
-        width: calc(100% - 30px);
+        width: calc(100% - 70px);
         max-width:400px;
     }
     .srch-catewrap .cate-li{
@@ -1822,7 +1827,7 @@ i.translation{
         margin: 7px 2px 0 2px;
     }
     .srch-catewrap.active{
-        height:130px;
+        height:170px;
     }
     .answer-more-p2 button{
         height:20px;

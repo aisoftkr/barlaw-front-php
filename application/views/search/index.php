@@ -66,10 +66,13 @@ echo form_open(site_url('/search/result'), $attributes);
 		});
 	$(".main-wrap").on("focusin", function(){
 		$(".srch-catewrap").addClass('active', 300);
+	});
+	$(document).on("click", function(e){
+		if(!$(e.target).parents.hasClass('srch-inner')){
+			$(".srch-catewrap").removeClass('active', 300);
+		}
 	})
-		.on("focusout", function(){
-			$(".srch-catewrap").removeClass('active',300);
-		});
+
 	$(".cate-li").on("click", function(){
 		$(this).toggleClass("on")
 		if($('.cate-li.on').length >= 4){
