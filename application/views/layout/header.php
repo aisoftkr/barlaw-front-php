@@ -10,6 +10,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>barlaw</title>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
+    <link rel="shortcut icon" href="<?php echo assets_url();?>img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<?php echo assets_url();?>img/favicon.ico" type="image/x-icon">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;500;700;900&display=swap" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
