@@ -311,6 +311,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$(".t-load4").parent().parent(".chat-left").after('<div class="chat-right question-on on"><div>“회사 일이 바쁘다고 육아휴직을 당장 쓰지 못하게 하는 사장님, 위법인가요?”</div><div class="ch-time"><span class="chat-id">보냄</span>,<span class="chat-time">'+getHours + ':' + getMinutes+'</span></div></div>');
 				}, 1000);
 			}, 1000);
-		}, 1000);
+		}, 0);
 	});
 </script>
