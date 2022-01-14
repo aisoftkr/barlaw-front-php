@@ -87,6 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	$(document)
 		.ajaxStart(function () {
 			// $('.chat-right').html();
+
 			const  htmlChatRight = '' +
 				'<div class="chat-right question-on on">' +
 				'  <div>“' +
@@ -104,7 +105,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				'<div class="chat-left clearfix">'+
 				defaultHtmlHeader+
 				'     <div class="loading-box">' +
-				'       “<span>'+$('textarea[name=question]').val()+'</span>”'+
+				'       “<span>'+$('textarea[name=question]').val()+'</span> ”</br>'+
 				'       <span>인공지능이 답변을 작성하고 있습니다</span>'+
 				'       <div class="loading">'+
 				'         <div class="one scale-blue1"></div>'+
@@ -132,6 +133,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}, 5000);
 		})
 		.ajaxStop(function () {
+			$('textarea[name=question]').val('');
 			$('.loading-box').parents('.chat-left').hide();
 		});
 	// $(function resize(obj){
@@ -193,10 +195,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						    defaultHtmlHeader+
 						    '<div class="clearfix">“'+$('textarea[name=question]').val()+'”<br>에 대한 수치 답변입니다.';
 
-						if(data.percent != 'nan' || data.percent >= 0){
+						if(data.percent != 'nan' && data.percent >= 0){
 							html +='' +
 							'<div class="bar-box clearfix">' +
-							'	<div class="bar" id="bar-1">';
+							'	<div class="bar" id="bar-1">'+
 							'		<div class="bar-p">' +
 							'			<p><span>'+data.percent+'</span>%</p>' +
 							'		</div>'+
