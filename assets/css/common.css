@@ -1951,5 +1951,10 @@ i.translation{
 	top:50%;
 }
 .precedent-main tbody tr td span {
-	color:#ff0000;
+	background:#336699;
+	color: #ffffff;
+}
+.precedent-main tbody tr td span.txt-hlight {
+	background: yellow!important;
+	color: #336699;
 }

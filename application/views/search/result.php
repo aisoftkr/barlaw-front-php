@@ -121,8 +121,9 @@
 		<div class="panrye-detail hidden">
 			<div class="detail-srch-inputwrap">
 				<div class="detail-srch-input-inner">
-					<input type="text" placeholder="검색어를 입력하세요.">
+					<input name="text_search" type="text" placeholder="검색어를 입력하세요.">
 					<p class="srch-count"><span>0</span>/<span>0</span></p>
+					<input type="hidden" name="srch-select-no">
 				</div>
 				<div class="detail-srch-input-btnwrap">
 					<button type="button" class="bottom"></button>
@@ -364,5 +365,79 @@
 			$(".detail-srch-wrap").addClass("on");
 			$(".detail-srch-inputwrap").addClass("on");
 		}
+	});
+	$('input[name=text_search').on('keyup',function () {
+		$('.srch-count span').eq(0).html(1)
+		$('.srch-count span').eq(1).html($('span.txt-hlight').length)
+		var search = $(this).val();
+		$("td:contains('')").each(function () {
+			var regex = new RegExp(search,'gi');
+			$(this).html( $(this).text().replace(regex, search) );
+		});
+		$("td:contains('"+search+"')").each(function (key) {
+			var regex = new RegExp(search,'gi');
+			$(this).html( $(this).text().replace(regex, "<span class='txt-hlight' >"+search+"</span>") );
+		});
+	});
+	$('.detail-srch-input-btnwrap .bottom').on('click',function (){
+		var isFocus = $('input[name=srch-select-no]');
+		var offset = '';
+		var total = $('span.txt-hlight').length;
+		if(Number(isFocus.val()) < 1){
+			offset = $('.txt-hlight').eq(0).offset(); //선택한 태그의 위치를 반환
+			$('html, body').animate({scrollTop : offset.top}, 400);
+			$('.srch-count span').eq(0).html(1)
+			isFocus.val(1)
+		}else{
+			if(isFocus.val() < total){
+				offset = $('.txt-hlight').eq(isFocus.val()).offset();
+				$('html, body').animate({scrollTop : offset.top}, 400);
+				$('.srch-count span').eq(0).html(isFocus.val())
+				isFocus.val(Number(isFocus.val())+1)
+			}else{
+				offset = $('.txt-hlight').eq(0).offset(); //선택한 태그의 위치를 반환
+				$('html, body').animate({scrollTop : offset.top}, 400);
+				$('.srch-count span').eq(0).html(1)
+				isFocus.val(1)
+			}
+
+		}
+
+			// isFocus.next().focus()
+			// $('.srch-count span').eq(0).html(isFocus.next().val())
+
+
+
+	});
+	$('.detail-srch-input-btnwrap .top').on('click',function (){
+		var isFocus = $('input[name=srch-select-no]');
+		var offset = '';
+		var total = $('span.txt-hlight').length;
+		if(Number(isFocus.val()) < 1){
+			offset = $('.txt-hlight').eq(total-1).offset(); //선택한 태그의 위치를 반환
+			$('html, body').animate({scrollTop : offset.top}, 400);
+			$('.srch-count span').eq(0).html(1)
+			isFocus.val(total)
+		}else{
+			if(Number(isFocus.val()) <= total){
+				isFocus.val(Number(isFocus.val())-1)
+				offset = $('.txt-hlight').eq(Number(isFocus.val())-1).offset();
+				$('html, body').animate({scrollTop : offset.top}, 400);
+				$('.srch-count span').eq(0).html(isFocus.val())
+
+			}else{
+				offset = $('.txt-hlight').eq(total-1).offset(); //선택한 태그의 위치를 반환
+				$('html, body').animate({scrollTop : offset.top}, 400);
+				$('.srch-count span').eq(0).html(1)
+				isFocus.val(total)
+			}
+
+		}
+
+		// isFocus.next().focus()
+		// $('.srch-count span').eq(0).html(isFocus.next().val())
+
+
+
 	});
 </script>
