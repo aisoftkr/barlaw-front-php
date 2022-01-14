@@ -1895,22 +1895,23 @@ i.translation{
     display: none;
 }
 .loading2{
-	position:absolute;
+	position:fixed;
 	top:0;
 	z-index: 999;
 	width:100%;
 	height: 100%;
-	background:#f2f2f2;
-	padding: 100px;
-	opacity: 50%;
+	background:#ffffff;
 }
 .loading2.displaynone{
 	display:none;
 }
 .loading2 .loading-inner{
-	position: relative;
-	margin:0 auto;
+	position: absolute;
 	width:100px;
+	height: 100px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 .loading2 .circle{
 	position:absolute;
@@ -1944,8 +1945,10 @@ i.translation{
 }
 .loading2 p{
 	width:100%;
-	margin-top: 70px;
+	margin-top: 20px;
 	text-align: center;
+	position: absolute;
+	top:50%;
 }
 .precedent-main tbody tr td span {
 	color:#ff0000;
