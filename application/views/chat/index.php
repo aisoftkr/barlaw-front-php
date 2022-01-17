@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<input type="hidden" name="tag2" class="tag" value="">
 				<input type="hidden" name="tag3" class="tag" value="">
 
-				<textarea name="question" id="q-text" cols="30" rows="1" placeholder="상담 내용을 입력해주세요." data-autoresize></textarea>
+				<textarea name="question" id="" cols="30" rows="1" placeholder="상담 내용을 입력해주세요." data-autoresize></textarea>
 				<button id="q-btn" class="q-btn" type="button" ></button>
 			<?php echo form_close(); ?>
 		</div>
@@ -133,7 +133,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}, 5000);
 		})
 		.ajaxStop(function () {
-			$('textarea[name=question]').val('');
+			$('textarea[name=question]').css('min-height', 'auto').val('');
 			$('.loading-box').parents('.chat-left').hide();
 		});
 	// $(function resize(obj){
@@ -243,7 +243,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			});
 			// axios.post('/api/run').then(res => { console.log(res.data) })
 		}
-		$('#q-text').val('');
 	});
 	$('.q-con textarea').on('keyup', function() {
 		var lion = $('.q-box ul li.on').length;
