@@ -235,7 +235,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						}else{
 							$('.input-box').prev().append(defaultHtmlHeader+'<div class="text-e3">요청한 데이터에 문제가 있습니다.</div>'+ defaultHtmlFooter)
 						}
-
+						if(data.code===0){
+							setTimeout(function() {
+								$('.input-box').prev().append(defaultHtmlHeader+'<div class="non-txt1">이런, 질문에 맞는 답변을 드리지 못하겠어요. 그렇지만 저는 지속적으로 업데이트 되고 있으니 다음에는 꼭 답변을 드릴게요!</div>'+ defaultHtmlFooter)
+									setTimeout(function() {
+									$(".non-txt1").after('<div class="non-txt2">정확한 검색 결과를 위한 팁을 드리자면, 질문은 가급적 하나만, 핵심을 요약하여 간결하게 적어주세요!</div>');
+								}, 1000);
+							}, 0);
+						}
 					}
 
 				},
@@ -311,8 +318,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$(".t-load3").after('<div class="t-load4">예를 들어볼까요? “회사 일이 바쁘다고 육아휴직을 당장 쓰지 못하게 하는 사장님, 위법인가요?” 라는 질문을 해보겠습니다!”</div>');
 					setTimeout(function() {
 					$(".t-load4").parent().parent(".chat-left").after('<div class="chat-right question-on on"><div>“회사 일이 바쁘다고 육아휴직을 당장 쓰지 못하게 하는 사장님, 위법인가요?”</div><div class="ch-time"><span class="chat-id">보냄</span>,<span class="chat-time">'+getHours + ':' + getMinutes+'</span></div></div>');
+						setTimeout(function(){
+						$(".qt-on").after('<div class="chat-left clearfix"><div class="chat-i"></div><div class="chat"><div class="ch-time"><span class="chat-id">바로</span>,<span class="chat-time">'+getHours + ':' + getMinutes+'</span></div><div class="qt-t1 clearfix">“회사 일이 바쁘다고 육아휴직을 당장 쓰지 못하게...”<br>에 대한 수치 답변입니다.<div class="bar-box  clearfix"><div class="bar" id="bar-1"><div class="bar-p"><p><span>100</span>%</p></div></div></div></div>')
+						setTimeout(function(){
+							$(".qt-t1").after('<div class="a-chat qt-t2">상담 내용에 대해서 더 자세히 알고 싶나요? Barlaw는 질문하신 상담 내용과 유사한 사례 및 판례를 제공해드립니다. 아래 결과를 확인해보세요.<div><span class="bold">관련 판례</span> 2018두47264</div><div class="a-cont"><span class="bold">관련 사례</span><p class="p-con"> “<span class="span-con"> 육아휴직을 회사가 거부하여육아휴직을 회사가 거부하여</span>”</p></div><a href="search-result-precedent-detail.html" class="bold mb20">관련 판례ᆞ사례 자세히 보기 ></a></div>')
+							setTimeout(function(){
+								$(".qt-t2").after('<div>잘 보셨죠? 정확한 상담 결과를 위한팁을 드리자면, 질문은 가급적 하나만, 핵심을요약하여 간결하게 적어주세요!</div>')
+							}, 1000);
+						}, 1000);
+					}, 1000);
 				}, 1000);
 			}, 1000);
 		}, 0);
+	});
+	$('.q-con textarea').keypress(function(event){
+		if ( event.which == 13 ) {
+			$('.q-con .q-btn').click();
+			return false;
+		}
 	});
 </script>

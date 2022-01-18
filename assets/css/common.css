@@ -765,8 +765,8 @@ div.ch-time {
 }
 .q-con textarea {
     width: 100%;
-    min-height: 61px;
-    padding: 17px 60px 17px 20px;
+    min-height: 60px;
+	padding: 14px 60px 14px 20px;
     resize: none;
     overflow: hidden;
     border: none;
@@ -787,16 +787,17 @@ button.q-btn.on{
     cursor: pointer;
 }
 .bar-box{
-    margin: 30px auto 0;
-    background: #ebebeb;
-    width: 100%;
+	margin: 30px 10px 5px 3px;
+	padding-right: 10px;
+	background: #ebebeb;
+	width: 93%;
     border-radius: 10px;
 }
 .bar{
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#94bbde', endColorstr='#4593db')";
     background-image: linear-gradient(to right, #94bbde 0%, #79afe1 49%, #4593db 97%);
     height: 7px;
-    width: 80%;
+    width: 100%;
     border-radius: 10px;
     position: relative;
 }
@@ -806,12 +807,12 @@ button.q-btn.on{
     height: 17px;
     background: url(../img/Ellipse.png)no-repeat center / contain;
     position: absolute;
-    right: -4px;
+	right: -10.5px;
     top: -5px;
 }
 .bar-p{
     position: absolute;
-    right: 0px;
+	right: -4px;
     top: -24px;
     transform: translateX(50%);
 }
@@ -1767,7 +1768,7 @@ i.translation{
         min-height: 40px;
     }
     .q-con textarea {
-        padding: 8px 40px 5px 10px;
+		padding: 9px 40px 7px 10px;
         font-size: 16px;
         min-height: 40px;
     }
