@@ -989,6 +989,7 @@ button.q-btn.on{
     margin: 0 auto;
     border: 2px solid #1948a9;
     border-radius: 40px;
+    overflow:hidden;
 }
 .srch-boxwrap .srch-input{
     position: absolute;
@@ -997,6 +998,7 @@ button.q-btn.on{
     left: 0;
     border: none;
     background-color: transparent;
+    border-radius: 40px;
 }
 .srch-input::placeholder{
     color: #c0c0c0;
@@ -1054,7 +1056,7 @@ button.q-btn.on{
     width: 750px;
     height: 60px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 60px 0 20px;
     border-radius: 10px;
     background:url(../img/icon-Wsearch.png) no-repeat center right 10px / 66px;
     background-color: #3a63b6;
@@ -1568,6 +1570,7 @@ i.translation{
         line-height: 42px;
         font-size: 14px;
         background-size: 30px;
+		padding: 0 20px;
     }
     .srch-keyword p{
         max-width: calc(100% - 180px)

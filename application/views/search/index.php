@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<input type="hidden" name="tag2" class="tag" value="">
 					<input type="hidden" name="tag3" class="tag" value="">
 
-					<input type="text" name="question" class="srch-input" placeholder="상담사례, 판례 AI 맞춤 검색">
+					<input type="text" name="question" class="srch-input" placeholder="상담사례, 판례 AI 맞춤 검색" onkeypress="if(event.keyCode==13){event.preventDefault(); srch();}">
 					<button id="q-btn" class="srch-btn" type="button" ></button>
 					<?php echo form_close(); ?>
 				</div>
@@ -142,5 +142,8 @@ echo form_open(site_url('/search/result'), $attributes);
 			})
 		}
 
-	});
+	})
+	function srch(){
+		$("#q-btn").trigger('click');
+	}
 </script>
