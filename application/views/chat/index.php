@@ -133,7 +133,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}, 5000);
 		})
 		.ajaxStop(function () {
-			$('textarea[name=question]').css('min-height', 'auto').val('');
 			$('.loading-box').parents('.chat-left').hide();
 		});
 	// $(function resize(obj){
@@ -250,6 +249,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			});
 			// axios.post('/api/run').then(res => { console.log(res.data) })
 		}
+		$('textarea[name=question]').css('min-height', 'auto').val('');
 	});
 	$('.q-con textarea').on('keyup', function() {
 		var lion = $('.q-box ul li.on').length;
@@ -317,7 +317,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			setTimeout(function() {
 				$(".t-load3").after('<div class="t-load4">예를 들어볼까요? “회사 일이 바쁘다고 육아휴직을 당장 쓰지 못하게 하는 사장님, 위법인가요?” 라는 질문을 해보겠습니다!”</div>');
 					setTimeout(function() {
-					$(".t-load4").parent().parent(".chat-left").after('<div class="chat-right question-on on"><div>“회사 일이 바쁘다고 육아휴직을 당장 쓰지 못하게 하는 사장님, 위법인가요?”</div><div class="ch-time"><span class="chat-id">보냄</span>,<span class="chat-time">'+getHours + ':' + getMinutes+'</span></div></div>');
+					$(".t-load4").parent().parent(".chat-left").after('<div class="chat-right question-on on qt-on"><div>“회사 일이 바쁘다고 육아휴직을 당장 쓰지 못하게 하는 사장님, 위법인가요?”</div><div class="ch-time"><span class="chat-id">보냄</span>,<span class="chat-time">'+getHours + ':' + getMinutes+'</span></div></div>');
 						setTimeout(function(){
 						$(".qt-on").after('<div class="chat-left clearfix"><div class="chat-i"></div><div class="chat"><div class="ch-time"><span class="chat-id">바로</span>,<span class="chat-time">'+getHours + ':' + getMinutes+'</span></div><div class="qt-t1 clearfix">“회사 일이 바쁘다고 육아휴직을 당장 쓰지 못하게...”<br>에 대한 수치 답변입니다.<div class="bar-box  clearfix"><div class="bar" id="bar-1"><div class="bar-p"><p><span>100</span>%</p></div></div></div></div>')
 						setTimeout(function(){
