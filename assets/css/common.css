@@ -1155,6 +1155,7 @@ button.q-btn.on{
 .srch-result-box .answer span{
     color: #4593db;
     font-weight: 900;
+	margin-right: 5px;
 }
 .srch-result-box .answer-box{
     color: #7d7d7d;
@@ -1264,9 +1265,9 @@ button.q-btn.on{
 }
 .popup-main{
     position: absolute;
-    top:25%;
+    top:50%;
     left:50%;
-    transform: translateX(-50%);
+	transform: translate(-50% , -50%);
     width:486px;
     border-radius: 10px;
     overflow: hidden;
@@ -1362,10 +1363,10 @@ i.translation{
     height:40px;
     background:url(../img/icon-translation.png) no-repeat center center / 37px;
 }
-.on i.Tsearch{
+.detail-srch-wrap.on i.Tsearch{
     background-image: url(../img/icon-Tsearch-w.png);
 }
-.on i.translation{
+.translation-wrap.on i.translation{
     background-image: url(../img/icon-translation-w.png);
 }
 .right-nav{
@@ -1411,6 +1412,9 @@ i.translation{
     line-height: 15px;
     letter-spacing: normal;
     font-size: 9px;
+}
+.right-nav>div.on .beta {
+	border: 1px solid #ffffff;
 }
 .detail-srch-inputwrap{
     display:none;

@@ -173,7 +173,7 @@
 		</div>
 		<div class="popup-buttonwrap clearfix">
 			<button type="button" class="btn-popup gray" onclick="location.href='<?=site_url('search')?>'">예</button>
-			<button type="button" class="btn-popup blue" ">아니오</button>
+			<button type="button" class="btn-popup blue" onclick="popupclose();">아니오</button>
 		</div>
 	</div>
 </div>
