@@ -198,6 +198,14 @@
 		$(".answer-more-p2 button").on("click", function(){
 			$(this).parents(".srch-result-box").removeClass("more");
 		});
+		//answer-more
+		$('.answer').each(function(){
+			var realheight = $(this).prop('scrollHeight');
+			var offsetheight = $(this).prop('offsetHeight');
+			if(offsetheight < realheight){}else{
+				$(this).parent('.answer-box').next('.answer-more-p').css({'display': 'none'});
+			}
+		});
 		// 버튼
 		$(".main-wrap").on("focusin", function(){
 			$(".srch-catewrap").addClass('active');
