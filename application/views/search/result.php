@@ -215,6 +215,10 @@
 		$(".cate-li").on("click", function(){
 			$(this).toggleClass("on")
 		});
+		$('.answer-more.detail').on('click',function (){
+			$('.srch-tabUl li').removeClass('on')
+			$('.srch-tabUl li').eq(2).addClass('on')
+		})
 		$('.srch-tabUl li a').on('click',function (e){
 			e.preventDefault();
 			$('.srch-tabUl li').removeClass('on')
