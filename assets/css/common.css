@@ -1949,7 +1949,7 @@ i.translation{
 	right:0;
 	background: #0085ff;
 	animation: loading 1s 0.2s infinite;
-	-webkit-animation: loading 0.8s 0.3s infinite;
+	-webkit-animation: loading 0.8s 0.4s infinite;
 }
 .loading2 p{
 	width:100%;
