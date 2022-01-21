@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<span class="chat-id">바로</span>,
 					<span class="chat-time" id="time-ch"></span>
 				</div>
-				<div class="t-load1">안녕하세요. 저는 인공지능 바로에요!</div>
+				<div class="t-load1">안녕하세요. 저는 인공지능 바로예요!</div>
 				<!--<div>저와 소통하는 방법이 궁금하시다면 우측 상단의 물음표 버튼 을 눌러주세요</div>
 				<div>아래의 법률 분야 중 상담 받고 싶은 분야를 선택하신 후, 양식에 구애 받지 않고 자유롭게 상담 내용을 입력해주세요!</div>
 				<div>예를 들어볼까요?
@@ -123,7 +123,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			    setTimeout(function() {
 			      $(".loading-txt2").after('<div class="loading-txt3">LAWBERT는 한국AI소프트가 자체 개발한 알고리즘입니다.</div>');
 			      setTimeout(function() {
-			        $(".loading-txt3").after('<div class="loading-txt4">무려 120만건의 판례,법률 데이터를 기억하고 있어요!</div>');
+			        $(".loading-txt3").after('<div class="loading-txt4">무려 120만건의 판례, 법률 데이터를 기억하고 있어요!</div>');
 			        setTimeout(function() {
 			          $(".loading-txt4").after('<div class="loading-txt5">이제 거의 다 됐습니다!</div>');
 			        }, 3000);
@@ -209,7 +209,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						    '<div class="a-chat">' +
 						    '상담 내용에 대해서 더 자세히 알고 싶나요? Barlaw는<br>' +
 						    '질문하신 상담 내용과 유사한 사례 및 판례를 제공해드립니다.<br>' +
-						    ' 아래 결과를 확인해보세요.';
+						    '아래 결과를 확인해보세요.';
 						if(data.panrye){
 						  html +='' +
 						      '<div><span class="bold">관련 판례</span>'+data.panrye+'</div>';
@@ -230,7 +230,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						})
 					}else{
 						if(data.code===0){
-							$('.input-box').prev().append(defaultHtmlHeader+'<div class="text-e3">관련 판례ᆞ사례 가 없습니다.</div>'+ defaultHtmlFooter)
+							$('.input-box').prev().append(defaultHtmlHeader+'<div class="text-e3">관련 판례ᆞ사례가 없습니다.</div>'+ defaultHtmlFooter)
 						}else{
 // 							$('.input-box').prev().append(defaultHtmlHeader+'<div class="text-e3">요청한 데이터에 문제가 있습니다.</div>'+ defaultHtmlFooter)
 							setTimeout(function() {
@@ -277,7 +277,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$('.input-box').prev().append('' +
 				defaultHtmlHeader +
 				'<div class="text-e1">' +
-				'정확한 상담 결과를 위해 상담 분야는<br>최대 3개 까지 선택하실 수 있습니다.' +
+				'정확한 상담 결과를 위해 상담 분야는<br>최대 3개까지 선택하실 수 있습니다.' +
 				'</div>'+
 				defaultHtmlFooter
 			);
@@ -306,7 +306,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	$("#time-ch").text(getHours + ':' + getMinutes);
     	setTimeout(function() {
-    		$(".t-load1").after('<div class="t-load2">저와 소통하는 방법이 궁금하시다면 우측 상단의 물음표 버튼 을 눌러주세요</div>');
+    		$(".t-load1").after('<div class="t-load2">저와 소통하는 방법이 궁금하시다면 우측 상단의 물음표 버튼을 눌러주세요</div>');
     	}, 1000);
 	$('.question').click(function(){
 		$(this).addClass('off');
@@ -319,9 +319,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						setTimeout(function(){
 						$(".qt-on").after('<div class="chat-left clearfix"><div class="chat-i"></div><div class="chat"><div class="ch-time"><span class="chat-id">바로</span>,<span class="chat-time">'+getHours + ':' + getMinutes+'</span></div><div class="qt-t1 clearfix">“회사 일이 바쁘다고 육아휴직을 당장 쓰지 못하게...”<br>에 대한 수치 답변입니다.<div class="bar-box  clearfix"><div class="bar" id="bar-1"><div class="bar-p"><p><span>100</span>%</p></div></div></div></div>')
 						setTimeout(function(){
-							$(".qt-t1").after('<div class="a-chat qt-t2">상담 내용에 대해서 더 자세히 알고 싶나요? Barlaw는 질문하신 상담 내용과 유사한 사례 및 판례를 제공해드립니다. 아래 결과를 확인해보세요.<div><span class="bold">관련 판례</span> 2018두47264</div><div class="a-cont"><span class="bold">관련 사례</span><p class="p-con"> “<span class="span-con"> 육아휴직을 회사가 거부하여육아휴직을 회사가 거부하여</span>”</p></div><a href="search-result-precedent-detail.html" class="bold mb20">관련 판례ᆞ사례 자세히 보기 ></a></div>')
+							$(".qt-t1").after('<div class="a-chat qt-t2">상담 내용에 대해서 더 자세히 알고 싶나요? Barlaw는 질문하신 상담 내용과 유사한 사례 및 판례를 제공해드립니다. 아래 결과를 확인해보세요.<div><span class="bold">관련 판례</span> 2018두47264</div><div class="a-cont"><span class="bold">관련 사례</span><p class="p-con"> “<span class="span-con"> 육아휴직을 회사가 거부하여 육아휴직을 회사가 거부하여</span>”</p></div><a class="bold mb20">관련 판례ᆞ사례 자세히 보기 ></a></div>')
 							setTimeout(function(){
-								$(".qt-t2").after('<div>잘 보셨죠? 정확한 상담 결과를 위한팁을 드리자면, 질문은 가급적 하나만, 핵심을요약하여 간결하게 적어주세요!</div>')
+								$(".qt-t2").after('<div>잘 보셨죠? 정확한 상담 결과를 위한 팁을 드리자면, 질문은 가급적 하나만, 핵심을요약하여 간결하게 적어주세요!</div>')
 							}, 1000);
 						}, 1000);
 					}, 1000);
