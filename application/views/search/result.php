@@ -107,7 +107,7 @@
 				<div class="srch-result-box">
 					<h5 class="precedent-num"><?=$value['panrye']?></h5>
 					<!--<h4 class="precedent-ttl">전세금 반환 청구사건</h4>-->
-					<p class="answer-more-p"><a href="#" class="answer-more detail" data-id="<?=$value['panrye']?>">자세히 보기 ></a></p>
+					<p class="answer-more-p"><a href="#" class="answer-more detail" data-id="<?=$value['panrye']?>" onClick="javascript:window.scrollTo(0,0)">자세히 보기 ></a></p>
 				</div>
 		<?php
 				}
