@@ -234,7 +234,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						}else{
 // 							$('.input-box').prev().append(defaultHtmlHeader+'<div class="text-e3">요청한 데이터에 문제가 있습니다.</div>'+ defaultHtmlFooter)
 							setTimeout(function() {
-								$('.input-box').prev().append(defaultHtmlHeader+'<div class="non-txt1">이런, 질문에 맞는 답변을 드리지 못하겠어요. 그렇지만 저는 지속적으로 업데이트 되고 있으니 다음에는 꼭 답변을 드릴게요!</div>'+ defaultHtmlFooter)
+								$('.input-box').prev().append(defaultHtmlHeader+'<div class="non-txt1">이런, 질문에 맞는 답변을 드리지 못하겠어요. 그렇지만 바로는 지속적인 업데이트 중이니 다음에는 꼭 답변을 드릴게요!</div>'+ defaultHtmlFooter)
 									setTimeout(function() {
 									$(".non-txt1").after('<div class="non-txt2">정확한 검색 결과를 위한 팁을 드리자면, 질문은 가급적 하나만, 핵심을 요약하여 간결하게 적어주세요!</div>');
 								}, 1000);
