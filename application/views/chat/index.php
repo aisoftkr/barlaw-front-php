@@ -192,7 +192,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					if(data.status){
 						var html ='' +
 						    defaultHtmlHeader+
-						    '<div class="clearfix">“'+$('textarea[name=question]').val()+'”<br>에 대한 수치 답변입니다.';
+						    '<div class="clearfix">“'+data.requestQuestion+'”<br>에 대한 수치 답변입니다.';
 
 						if(data.percent != 'nan' && data.percent >= 0){
 							html +='' +
@@ -218,7 +218,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						    '<div class="a-cont"><span class="bold">관련 사례</span><p class="p-con">“<span class="span-con">'+data.answer+'</span>”</p></div>';
 						// if(data.panrye){
 						html +='<a href="#" class="bold mb20" onclick="$(\'#goSearchAll\').submit()">관련 판례ᆞ사례 자세히 보기 ></a>';
-						$('input[name=keyword]').val($('textarea[name=question]').val());
+						$('input[name=keyword]').val(data.requestQuestion);
 						$('input[name=filename]').val(data.resultFile);
 						html +='' +
 						    '</div>' + defaultHtmlFooter;

@@ -226,6 +226,10 @@
 		$(".cate-li").on("click", function(){
 			$(this).toggleClass("on")
 		});
+		$('.answer-more.detail').on('click',function (){
+			$('.srch-tabUl li').removeClass('on')
+			$('.srch-tabUl li').eq(2).addClass('on')
+		})
 		$('.srch-tabUl li a').on('click',function (e){
 			e.preventDefault();
 			$('.srch-tabUl li').removeClass('on')
@@ -249,18 +253,24 @@
 	$('.answer-more.detail').on('click',function (e){
 		$('input[name=panryeno]').val($(this).attr("data-id"));
 		e.preventDefault();
+		changeTrans('default',$(this).attr("data-id"));
+	});
+
+	function changeTrans(transType,panryeno){
 		var settings = {
-			"url": "/api/panrye?panryeno="+$(this).attr("data-id"),
+			"url": "/api/panrye?panryeno="+panryeno,
 			"method": "POST",
 			"async":true,
 			"timeout": 0,
-		};
+		}
 		var html='';
-
+		var resultData=''
 		$.ajax(settings).done(function (response) {
 			if(response.status){
 				$('.precedent-hd h3').html(response.data.base.name)
-				$.each(response.data,function (key,val){
+				if(transType=='default') resultData=response.data;
+				if(transType=='trans') resultData=response.dataTrans;
+				$.each(resultData,function (key,val){
 					if(key === 'base'){
 						html += '' +
 							'<tr><th>판례번호</th><td>'+val.uen+'</td></tr>' +
@@ -283,48 +293,15 @@
 				alert('관련 판례ᆞ사례 가 없거나. 요청한 데이터에 문제가 있습니다.')
 			}
 		});
-	});
+	}
 	$('.translation-wrap').on('click',function (e){
 		if($(this).hasClass("on")){
 			$(this).removeClass("on");
 			$(".detail-srch-inputwrap").removeClass("on");
-			$('.answer-more.detail').click()
+			changeTrans('default',$('input[name=panryeno]').val());
 		}else{
 			$(this).addClass("on");
-			var settings = {
-				"url": "/api/panrye?panryeno="+$('input[name=panryeno]').val(),
-				"method": "POST",
-				"async":true,
-				"timeout": 0,
-			}
-			var html='';
-
-			$.ajax(settings).done(function (response) {
-				if(response.status){
-					$('.precedent-hd h3').html(response.data.base.name)
-					$.each(response.dataTrans,function (key,val){
-						if(key === 'base'){
-							html += '' +
-								'<tr><th>판례번호</th><td>'+val.uen+'</td></tr>' +
-								'<tr><th>판례구분</th><td>'+val.type+'</td></tr>' +
-								'<tr><th>날짜</th><td>'+val.date+'</td></tr>'
-							;
-						}
-						if(val.mokcha){
-							html += '' +
-								'<tr><th>'+val.mokcha+'</th><td>'+val.text+'</td></tr>';
-						}
-
-					})
-					$('.precedent-main tbody').html(html);
-					$('.history').addClass('hidden')
-					$('.panrye').addClass('hidden')
-					$('.panrye-detail').removeClass('hidden')
-
-				}else{
-					alert('관련 판례ᆞ사례 가 없거나. 요청한 데이터에 문제가 있습니다.')
-				}
-			});
+			changeTrans('trans',$('input[name=panryeno]').val());
 		}
 	});
 	/*right nav*/
@@ -459,4 +436,5 @@
 
 
 	});
+
 </script>
