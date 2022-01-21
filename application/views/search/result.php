@@ -206,6 +206,17 @@
 				$(this).parent('.answer-box').next('.answer-more-p').css({'display': 'none'});
 			}
 		});
+		$('.tab-more').on('click', function(){
+			$('.answer').each(function(){
+				var realheight = $(this).prop('scrollHeight');
+				var offsetheight = $(this).prop('offsetHeight');
+				if(offsetheight < realheight){
+					$(this).parent('.answer-box').next('.answer-more-p').css({'display': 'block'});
+				}else{
+					$(this).parent('.answer-box').next('.answer-more-p').css({'display': 'none'});
+				}
+			});
+		});
 		// 버튼
 		$(".main-wrap").on("focusin", function(){
 			$(".srch-catewrap").addClass('active');
