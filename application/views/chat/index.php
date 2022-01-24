@@ -134,6 +134,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		})
 		.ajaxStop(function () {
 			$('.loading-box').parents('.chat-left').hide();
+			$('.cont-t').scrollTop($('.cont-t')[0].scrollHeight);
 		});
 	// $(function resize(obj){
 	// 	obj.style.height = "1px";

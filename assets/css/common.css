@@ -646,16 +646,26 @@ input[type=checkbox]:checked+label::before{
     cursor: pointer;
 }
 /* 챗봇 */
+.wrap{height: 100vh;}
 .chat-con {
     max-width: 890px;
     height: 100%;
     padding: 50px 20px 70px;
     margin: 0 auto;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
-.cont-t{
-    min-height: 495px;
+.cont-t {
+    height: 100%;
+    flex-grow: 1;
+    overflow: auto;
+    scroll-behavior: auto;
+    -ms-overflow-style: none;
+    display: flex;
+    flex-direction: column;
 }
+.cont-t::-webkit-scrollbar{ display:none; }
 .chat-left{
     float: left;
     display: flex;
@@ -708,6 +718,7 @@ div.ch-time {
 .question-on.on{
     display: flex;
     flex-direction: column;
+	padding-right: 1px;
 }
 .chat-right{
     float: right;
@@ -1770,6 +1781,9 @@ i.translation{
     .chat-right > div{
         font-size: 14px;
         max-width: 70%;
+    }
+    .q-box {
+        margin-top: 30px;
     }
     .q-con{
         min-height: 40px;
