@@ -646,26 +646,16 @@ input[type=checkbox]:checked+label::before{
     cursor: pointer;
 }
 /* 챗봇 */
-.wrap{height: 100vh;}
 .chat-con {
     max-width: 890px;
-    height: 100%;
+    height: auto;
     padding: 50px 20px 70px;
     margin: 0 auto;
     position: relative;
-    display: flex;
-    flex-direction: column;
 }
-.cont-t {
-    height: 100%;
-    flex-grow: 1;
-    overflow: auto;
-    scroll-behavior: auto;
-    -ms-overflow-style: none;
-    display: flex;
-    flex-direction: column;
+.cont-t{
+    min-height: 459px;
 }
-.cont-t::-webkit-scrollbar{ display:none; }
 .chat-left{
     float: left;
     display: flex;
@@ -718,7 +708,6 @@ div.ch-time {
 .question-on.on{
     display: flex;
     flex-direction: column;
-	padding-right: 1px;
 }
 .chat-right{
     float: right;
@@ -1512,6 +1501,9 @@ i.translation{
 .chat-left , .chat-left .chat > div,.chat-right > div{
     animation:bmnplo .6s ease-in-out 0s 1 normal none running
 }
+.input-box{
+    margin-bottom: 225px;
+}
 @keyframes bmnplo{
     0%{transform:translateY(10px);opacity:0}
     50%{transform:translateY(-10px);opacity:1}
@@ -1706,6 +1698,12 @@ i.translation{
     }
 }
 @media screen and (max-width : 540px){
+    .cont-t {
+        min-height: 330px;
+    }
+    .q-box {
+        margin-top: 30px;
+    }
     .main-wrap .content {
         padding: 50px 10px;
         height: calc(100vh - 50px);
@@ -1781,9 +1779,6 @@ i.translation{
     .chat-right > div{
         font-size: 14px;
         max-width: 70%;
-    }
-    .q-box {
-        margin-top: 30px;
     }
     .q-con{
         min-height: 40px;
