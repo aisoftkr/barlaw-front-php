@@ -37,8 +37,8 @@ class Search  extends CI_Controller
 			CURLOPT_FOLLOWLOCATION => true,
 			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 			CURLOPT_CUSTOMREQUEST => 'POST',
-//			CURLOPT_POSTFIELDS => array('filename'=>$this->input->post('filename')),
-			CURLOPT_POSTFIELDS => array('filename'=>'202201281430007303.json'),
+			CURLOPT_POSTFIELDS => array('filename'=>$this->input->post('filename')),
+//			CURLOPT_POSTFIELDS => array('filename'=>'202201281430007303.json'),
 			//202201281430007303.json
 		));
 
