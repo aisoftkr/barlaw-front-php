@@ -68,10 +68,10 @@ echo form_open(site_url('/search/result'), $attributes);
 		$(".srch-catewrap").addClass('active', 300);
 	});
 	$(document).on("click", function(e){
-		if(!$(e.target).parents.hasClass('srch-inner')){
+		if($(e.target).parents('.srch-inner').length < 1){
 			$(".srch-catewrap").removeClass('active', 300);
 		}
-	})
+	});
 
 	$(".cate-li").on("click", function(){
 		$(this).toggleClass("on")
