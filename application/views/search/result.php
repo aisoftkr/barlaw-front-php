@@ -256,10 +256,13 @@
 		changeTrans('default',$(this).attr("data-id"));
 	});
 
+
 	function changeTrans(transType,panryeno){
 		var settings = {
 			"url": "/api/panrye?panryeno="+panryeno,
 			"method": "POST",
+			"contentType": false,
+			"processData": false,
 			"async":true,
 			"timeout": 0,
 		}
@@ -290,7 +293,7 @@
 				$('.panrye-detail').removeClass('hidden')
 
 			}else{
-				alert('관련 판례ᆞ사례 가 없거나. 요청한 데이터에 문제가 있습니다.')
+				alert('검색 결과 없음')
 			}
 		});
 	}
@@ -436,5 +439,19 @@
 
 
 	});
+
+	window.history.pushState(null,'',location.href);
+
+	window.onpopstate=()=>{
+		history.go(1);
+		if(!$('.panrye-detail').hasClass("hidden")){
+			$('.srch-tabUl li a[data-id="3"]').trigger('click');
+
+		}else{
+			location.href='/search';
+			console.log(111)
+		}
+	}
+
 
 </script>

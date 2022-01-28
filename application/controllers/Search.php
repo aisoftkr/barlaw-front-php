@@ -15,12 +15,7 @@ class Search  extends CI_Controller
         $this->load->helper('date');
         $this->load->helper('array');
     }
-    public function _remap($method)
-    {
-        if (method_exists($this, $method)) {
-            $this->{"{$method}"}();
-        }
-    }
+
     public function index()
     {
 
@@ -42,7 +37,9 @@ class Search  extends CI_Controller
 			CURLOPT_FOLLOWLOCATION => true,
 			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 			CURLOPT_CUSTOMREQUEST => 'POST',
-			CURLOPT_POSTFIELDS => array('filename'=>$this->input->post('filename')),
+//			CURLOPT_POSTFIELDS => array('filename'=>$this->input->post('filename')),
+			CURLOPT_POSTFIELDS => array('filename'=>'202201281430007303.json'),
+			//202201281430007303.json
 		));
 
 		$response = curl_exec($curl);
@@ -54,6 +51,7 @@ class Search  extends CI_Controller
 		$list = array();
 		$listMore = array();
 		$data['pageListCnt']=3;
+
 		if($JsonParser!=null){
 			if(element('result_answer', $JsonParser)){
 				foreach ( element('result_answer', $JsonParser) as $key=>$value){
@@ -71,7 +69,7 @@ class Search  extends CI_Controller
 							$listMore[$key]['content'] = $value['content'];
 							$listMore[$key]['answer'] = $value['answer'];
 							$listMore[$key]['panrye'] = $value['panrye'];
-							$listMore[$key]['percent'] = $value['percent'];
+							$listMore[$key]['percent'] =isset($value['percent']) ? $value['percent'] : 0;
 						}
 
 				}

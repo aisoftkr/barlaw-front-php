@@ -115,7 +115,7 @@ echo form_open(site_url('/search/result'), $attributes);
 						$('input[name=filename]').val(data.resultFile);
 						$('#goSearchAll').submit()
 					}else{
-						alert('관련 판례ᆞ사례 가 없거나. 요청한 데이터에 문제가 있습니다.')
+						alert('검색 결과 없음')
 					}
 				},
 			});
