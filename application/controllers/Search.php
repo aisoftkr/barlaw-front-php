@@ -63,7 +63,7 @@ class Search  extends CI_Controller
 							$list[$key]['content'] = $value['content'];
 							$list[$key]['answer'] = $value['answer'];
 							$list[$key]['panrye'] = $value['panrye'];
-							$list[$key]['percent'] = $value['percent'];
+							$list[$key]['percent']  = isset($value['percent']) ? $value['percent'] : 0;
 						}else{
 							$listMore[$key]['question'] = $value['question'];
 							$listMore[$key]['content'] = $value['content'];
@@ -96,13 +96,13 @@ class Search  extends CI_Controller
 							$listPanrye[$key]['content'] = $value['content'];
 							$listPanrye[$key]['answer'] = $value['answer'];
 							$listPanrye[$key]['panrye'] = $value['panrye'];
-							$listPanrye[$key]['percent'] = $value['percent'];
+							$listPanrye[$key]['percent']  =isset($value['percent']) ? $value['percent'] : 0;
 						} else {
 							$listPanryeMore[$key]['question'] = $value['question'];
 							$listPanryeMore[$key]['content'] = $value['content'];
 							$listPanryeMore[$key]['answer'] = $value['answer'];
 							$listPanryeMore[$key]['panrye'] = $value['panrye'];
-							$listPanryeMore[$key]['percent'] = $value['percent'];
+							$listPanryeMore[$key]['percent'] =isset($value['percent']) ? $value['percent'] : 0;
 						}
 					}
 				}
