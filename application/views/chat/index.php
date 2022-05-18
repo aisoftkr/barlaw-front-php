@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<span class="chat-id">바로</span>,
 					<span class="chat-time" id="time-ch"></span>
 				</div>
-				<div class="t-load1">안녕하세요. 저는 인공지능 바로예요!</div>
+				<div class="t-load1">안녕하세요. 저는 인공지능 바로예요</div>
 				<!--<div>저와 소통하는 방법이 궁금하시다면 우측 상단의 물음표 버튼 을 눌러주세요</div>
 				<div>아래의 법률 분야 중 상담 받고 싶은 분야를 선택하신 후, 양식에 구애 받지 않고 자유롭게 상담 내용을 입력해주세요!</div>
 				<div>예를 들어볼까요?
