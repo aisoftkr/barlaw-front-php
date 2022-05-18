@@ -29,7 +29,7 @@ class Search  extends CI_Controller
 		$curl = curl_init();
 
 		curl_setopt_array($curl, array(
-			CURLOPT_URL => '/api/searchall',
+			CURLOPT_URL => 'http://15.165.233.168:8080/api/searchall',
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_ENCODING => '',
 			CURLOPT_MAXREDIRS => 10,
@@ -125,7 +125,7 @@ class Search  extends CI_Controller
 		$curl = curl_init();
 
 		curl_setopt_array($curl, array(
-			CURLOPT_URL => '/api/panrye',
+			CURLOPT_URL => 'http://15.165.233.168:8080/api/panrye',
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_ENCODING => '',
 			CURLOPT_MAXREDIRS => 10,
